@@ -1,0 +1,248 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Montserrat Self-Hosted via @fontsource/montserrat (latin subset) */
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/600.css";
+@import "@fontsource/montserrat/700.css";
+@import "@fontsource/montserrat/800.css";
+
+:root {
+  --color-navy: #062E73;
+  --color-royal: #0A4BB5;
+  --color-vivid: #1E7BFF;
+  --color-cyan: #00B4F0;
+  --color-white: #FFFFFF;
+
+  --bg-gradient-dark: linear-gradient(180deg, #020B24 0%, #04122E 35%, #061A4A 70%, #0A3A8F 100%);
+  --bg-gradient-light: linear-gradient(180deg, #F2F8FF 0%, #D6EAFF 50%, #A9D3FF 100%);
+}
+
+html {
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Light / Dark text selection */
+::selection {
+  background: rgba(0, 180, 240, 0.35);
+  color: #FFFFFF;
+}
+
+/* Base text color for light mode */
+html:not(.dark) {
+  color: #062E73;
+}
+
+html:not(.dark) body {
+  color: #062E73;
+}
+
+/* Glass panel classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 180, 240, 0.35);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15), 0 12px 32px 0 rgba(2, 11, 36, 0.35);
+  border-radius: 22px;
+}
+
+html:not(.dark) .glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(10, 75, 181, 0.25);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.95), 0 12px 36px 0 rgba(10, 75, 181, 0.14);
+  border-radius: 22px;
+  color: #062E73;
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 180, 240, 0.4);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15), 0 8px 24px 0 rgba(2, 11, 36, 0.25);
+  border-radius: 9999px;
+}
+
+html:not(.dark) .glass-pill {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(10, 75, 181, 0.25);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.95), 0 8px 24px 0 rgba(10, 75, 181, 0.12);
+  border-radius: 9999px;
+  color: #062E73;
+}
+
+/* ALL BUTTONS FILLED AS REQUESTED */
+.btn-primary,
+.btn-secondary {
+  background: linear-gradient(135deg, #00B4F0 0%, #1E7BFF 100%);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 180, 240, 0.4);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 180, 240, 0.55);
+  filter: brightness(1.08);
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Shimmer animation for Hero H1 */
+@keyframes titleShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer-text {
+  background-size: 200% auto;
+  animation: titleShimmer 6s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Orbit decorative ring around Hero image */
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 60%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  border: 2px solid rgba(0, 180, 240, 0.65);
+  border-radius: 50%;
+  box-shadow: 0 0 28px rgba(0, 180, 240, 0.4), inset 0 0 20px rgba(30, 123, 255, 0.3);
+  pointer-events: none;
+}
+
+/* Product radial halo */
+.product-halo {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(0, 180, 240, 0.08) 50%, transparent 75%);
+}
+
+html:not(.dark) .product-halo {
+  background: radial-gradient(circle, rgba(10, 75, 181, 0.12) 0%, rgba(0, 180, 240, 0.05) 50%, transparent 75%);
+}
+
+/* Bokeh circles animations */
+@keyframes bokehFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+  50% { transform: translate(30px, -40px) scale(1.15); opacity: 0.28; }
+}
+
+@keyframes bokehFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+  50% { transform: translate(-40px, 35px) scale(0.9); opacity: 0.1; }
+}
+
+@keyframes bokehFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1.1); opacity: 0.25; }
+  50% { transform: translate(25px, 30px) scale(1); opacity: 0.12; }
+}
+
+.bokeh-1 { animation: bokehFloat1 18s ease-in-out infinite; }
+.bokeh-2 { animation: bokehFloat2 24s ease-in-out infinite; }
+.bokeh-3 { animation: bokehFloat3 21s ease-in-out infinite; }
+
+/* 3D Stack Carousel Perspective Container */
+.carousel-stage {
+  perspective: 1200px;
+  perspective-origin: center center;
+  transform-style: preserve-3d;
+}
+
+/* Continuous Horizontal Infinite Marquee (Right-to-Left) */
+@keyframes marqueeScrollLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-row {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollLeft 36s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-row:hover {
+  animation-play-state: paused;
+}
+
+
+/* ============================================================================
+   LITE MODE & REDUCED MOTION SPECIFICATIONS
+   Activates when html[data-lite="true"] or @media (prefers-reduced-motion: reduce)
+   ============================================================================ */
+html[data-lite="true"],
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable wave canvas, ripple, bokeh, orbit ring, shimmer */
+  #water-canvas,
+  .bokeh-container,
+  .orbit-ring {
+    display: none !important;
+  }
+
+  .shimmer-text {
+    animation: none !important;
+    background-size: 100% auto !important;
+  }
+
+  /* Disable backdrop-filter for CPU/GPU efficiency */
+  .glass-panel,
+  .glass-pill {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: #04143A !important;
+    border-color: rgba(0, 180, 240, 0.3) !important;
+  }
+
+  html:not(.dark)[data-lite="true"] .glass-panel,
+  html:not(.dark)[data-lite="true"] .glass-pill {
+    background: #FFFFFF !important;
+    border-color: rgba(10, 75, 181, 0.25) !important;
+  }
+
+  /* In lite mode, 3D carousel becomes horizontal scroll-snap list */
+  .lite-carousel-container {
+    perspective: none !important;
+    transform-style: flat !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .lite-carousel-item {
+    transform: none !important;
+    opacity: 1 !important;
+    scroll-snap-align: center !important;
+  }
+}

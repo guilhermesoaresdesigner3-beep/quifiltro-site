@@ -1,0 +1,6 @@
+{
+  "name": "Quifiltro | Filtração e purificação de água em Angola",
+  "description": "Sistemas de filtração, osmose reversa e bebedouros para casas, empresas e indústrias em Angola. Entrega em todas as províncias.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
